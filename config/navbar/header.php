@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Supply the basis for the navbar as an array.
  */
@@ -6,7 +7,7 @@ return [
     // Use for styling the menu
     "wrapper" => null,
     "class" => "my-navbar rm-default rm-desktop",
- 
+
     // Here comes the menu items
     "items" => [
         [
@@ -42,6 +43,11 @@ return [
             "text" => "Ip Validator",
             "url" => "ip",
             "title" => "Validerar ip-address.",
+        ],
+        [
+            "text" => "IpStack Geo",
+            "url" => "ip/ipstack",
+            "title" => "Hämta kordinater.",
         ],
     ],
 ];

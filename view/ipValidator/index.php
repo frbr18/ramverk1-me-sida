@@ -21,4 +21,4 @@
     <button type="submit">Validera</button>
 </form>
 
-<a href="ip/json?ip=172.217.22.164">Valid ip test i json.</a>
+<a href="api?ip=172.217.22.164">Valid ip test i json.</a>

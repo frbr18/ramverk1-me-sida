@@ -8,12 +8,8 @@ use PHPUnit\Framework\TestCase;
 /**
  * Test the SampleController.
  */
-class IpValidatorControllerTest extends TestCase
+class IpApiControllerTest extends TestCase
 {
-    /**
-     * Test the route "index".
-     */
-
     protected $di;
 
     protected function setUp()
@@ -23,47 +19,31 @@ class IpValidatorControllerTest extends TestCase
         $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
         // Use a different cache dir for unit test
         $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
+        $request = $di->get("request");
+        $request->setGet("ip", "172.217.22.164");
         $this->di = $di;
+        $this->request = $request;
     }
 
     public function testIndexActionGet()
     {
         // Start the controller
-        $controller = new IpValidatorController();
+        $controller = new IpApiController();
         $controller->setDI($this->di);
         $controller->initialize();
 
         $res = $controller->indexActionGet();
-        $this->assertIsObject($res);
-    }
-
-    public function testIndexActionPost()
-    {
-        $controller = new IpValidatorController();
-        $controller->setDI($this->di);
-        $controller->initialize();
-
-        $res = $controller->indexActionPost();
-        $this->assertIsObject($res);
-    }
-
-    public function testIpstackActionPost()
-    {
-        $controller = new IpValidatorController();
-        $controller->setDI($this->di);
-        $controller->initialize();
-
-        $res = $controller->ipstackActionPost();
-        $this->assertIsObject($res);
+        $this->assertIsArray($res);
     }
 
     public function testIpstackActionGet()
     {
-        $controller = new IpValidatorController();
+        // Start the controller
+        $controller = new IpApiController();
         $controller->setDI($this->di);
         $controller->initialize();
 
         $res = $controller->ipstackActionGet();
-        $this->assertIsObject($res);
+        $this->assertIsArray($res);
     }
 }
