@@ -49,5 +49,10 @@ return [
             "url" => "ip/ipstack",
             "title" => "Hämta kordinater.",
         ],
+        [
+            "text" => "Väder",
+            "url" => "weather",
+            "title" => "Se vädret.",
+        ],
     ],
 ];

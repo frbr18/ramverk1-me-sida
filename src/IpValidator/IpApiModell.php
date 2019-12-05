@@ -43,4 +43,13 @@ class IpApiModell
         ];
         return $json;
     }
+
+    public function checkIp($ip)
+    {
+        $validIpv4 = (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) ? "Valid" : "Invalid";
+        $validIpv6 = (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) ? "Valid" : "Invalid";
+        //Checks if the ip-address has domain
+        $valid = ($validIpv4 == "Valid" || $validIpv6 == "Valid") ? true : false;
+        return $valid;
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Create a collection of views.
  */
